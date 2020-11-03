@@ -95,7 +95,7 @@ public class StringsAndThings {
 
         for (int i = 0; i < input.length() - 2; i++) {
             char temp = input.charAt(i);
-            if (temp ==input.charAt(i + 1) && temp == input.charAt(i + 2)) {
+            if (temp == input.charAt(i + 1) && temp == input.charAt(i + 2)) {
                 count++;
             }
         }
