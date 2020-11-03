@@ -27,7 +27,6 @@ public class StringsAndThings {
                 count++;
             }
         }
-
         return count;
     }
 
@@ -58,12 +57,12 @@ public class StringsAndThings {
         String stringNot = "not";
 
         String removeIs = input.replace(stringIs, "");
-        Integer occOfIs = (input.length() - removeIs.length()) / stringIs.length();
+        Integer occOfIs = (input.length() - removeIs.length()) / stringIs.length(); // found this equation in Stack Overflow
 
         String removeNot = input.replace(stringNot, "");
         Integer occOfNot = (input.length() - removeNot.length()) / stringNot.length();
 
-        return occOfIs == occOfNot;
+        return occOfIs.equals(occOfNot);
     }
 
     /**
@@ -74,7 +73,12 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        if(input.contains("gg")) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 
@@ -86,6 +90,16 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+
+        Integer count = 0;
+
+        for (int i = 0; i < input.length() - 2; i++) {
+            char temp = input.charAt(i);
+            if (temp ==input.charAt(i + 1) && temp == input.charAt(i + 2)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
