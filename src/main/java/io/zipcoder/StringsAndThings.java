@@ -52,8 +52,18 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
+    // we are looking for a count of the substrings "is" and "not"
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        String stringIs = "is";
+        String stringNot = "not";
+
+        String removeIs = input.replace(stringIs, "");
+        Integer occOfIs = (input.length() - removeIs.length()) / stringIs.length();
+
+        String removeNot = input.replace(stringNot, "");
+        Integer occOfNot = (input.length() - removeNot.length()) / stringNot.length();
+
+        return occOfIs == occOfNot;
     }
 
     /**
