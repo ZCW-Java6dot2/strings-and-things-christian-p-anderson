@@ -15,7 +15,19 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        // split string into words
+        // go to each word and look at last letter
+        // if the last letter is 'y' or 'z' increase count by 1
+
+        Integer count = 0;
+        String wordArray[] = input.split(" ");
+
+        for(Integer i = 0; i < wordArray.length; i++) {
+            if(wordArray[i].endsWith("y") || wordArray[i].endsWith("z")) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -28,7 +40,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -39,8 +51,18 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
+    // we are looking for a count of the substrings "is" and "not"
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        String stringIs = "is";
+        String stringNot = "not";
+
+        String removeIs = input.replace(stringIs, "");
+        Integer occOfIs = (input.length() - removeIs.length()) / stringIs.length(); // found this equation in Stack Overflow
+
+        String removeNot = input.replace(stringNot, "");
+        Integer occOfNot = (input.length() - removeNot.length()) / stringNot.length();
+
+        return occOfIs.equals(occOfNot);
     }
 
     /**
@@ -51,7 +73,12 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        if(input.contains("gg")) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 
@@ -63,6 +90,16 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+
+        Integer count = 0;
+
+        for (int i = 0; i < input.length() - 2; i++) {
+            char temp = input.charAt(i);
+            if (temp == input.charAt(i + 1) && temp == input.charAt(i + 2)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
